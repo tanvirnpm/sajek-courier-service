@@ -55,12 +55,12 @@ const PricingAndPlans = () => {
     return (
         <section className="container py-5">
             <div className="row justify-content-center">
-                <div className="text-center mb-5">
+                <div className="text-center mb-3">
                     <h2>PRICING & PLANS</h2>
                     <p>See our pricing & plans to get best service</p>
                 </div>
             </div>
-            <div className="row">
+            <div className="row g-3">
                 {
                     pricingAndPlans.map(pricingAndPlan => <PricingAndPlansCard pricingAndPlan={pricingAndPlan} />)
                 }

@@ -2,10 +2,10 @@ import { createContext, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import AddANewService from "./Components/AddANewService/AddANewService";
 import Home from "./Components/Home/Home";
+import ManageAllOrders from "./Components/ManageAllOrders/ManageAllOrders";
 import MyOrders from "./Components/MyOrders/MyOrders";
 import NotFound from "./Components/NotFound/NotFound";
 import Login from "./Components/Shared/Login/Login";
-import PrivateRoute from "./Functions/PrivateRoute";
 
 export const UserContext = createContext();
 function App() {
@@ -46,6 +46,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/add-a-new-service">
             <AddANewService />
+          </PrivateRoute>
+          <PrivateRoute path="/manage-all-orders">
+            <ManageAllOrders />
           </PrivateRoute>
           <Route path="*">
             <NotFound />

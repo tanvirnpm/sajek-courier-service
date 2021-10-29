@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 
-const MyOrders = () => {
+const ManageAllOrders = () => {
     return (
         <div>
             <Navbar />
             <div className="container">
-                <h1 className="text-center py-3">My Orders List</h1>
+                <h1 className="text-center py-3">Manage All Orders</h1>
                 <table className="table">
                     <thead>
                         <tr>
@@ -55,4 +55,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default ManageAllOrders;

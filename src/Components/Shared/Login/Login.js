@@ -14,7 +14,7 @@ const Login = () => {
     
     // firebase initialization
     firebaseInitialize();
-    
+
     const auth = getAuth();
     let { from } = location.state || { from: { pathname: "/" } };
     const googleIconStyle = {
@@ -37,6 +37,7 @@ const Login = () => {
                 console.log(error)
             });
     }
+    // console login user information initial state
     console.log(loggedUser)
     return (
         <div className="vh-100 position-relative">

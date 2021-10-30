@@ -27,7 +27,11 @@ const Login = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                const user = result.user;
+                const user = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    photo: result.user.photoURL
+                };
                 setLoggedUser({
                     logged: true,
                     user

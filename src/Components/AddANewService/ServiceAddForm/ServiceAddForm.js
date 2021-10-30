@@ -14,7 +14,7 @@ const ServiceAddForm = () => {
         })
         .then(res=>res.json())
         .then(result=>{
-            console.log(result)
+            console.log("inserted data",result)
         })
     };
     return (
@@ -37,12 +37,12 @@ const ServiceAddForm = () => {
                     <textarea className="form-control" rows="3" placeholder="Service Details (Ex. Same day; Fast Delivey;)" id="serviceDetail" {...register("serviceDetail")} ></textarea>
                 </div>
             </div>
-            {/* <div className="mb-3 row">
+            <div className="mb-3 row">
                 <label htmlFor="serviceThumbnil" className="col-sm-2 col-form-label">Thumbnil</label>
                 <div className="col-sm-10">
                     <input className="form-control" type="file" id="serviceThumbnil" {...register("thumbnil")} />
                 </div>
-            </div> */}
+            </div>
             <div className="mb-3 row">
                 <div className="col">
                     <input className="btn btn-primary float-end" type="submit"/>

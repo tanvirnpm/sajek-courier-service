@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PricingAndPlansCard from './PricingAndPlansCard/PricingAndPlansCard';
 
 const PricingAndPlans = () => {
+    const [service, setService] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/getService')
+        .then(res=>res.json())
+        .then(data=>setService(data))
+    },[])
+    // console.log(service)
     const pricingAndPlans = [
         {
             id: 1,
@@ -62,9 +69,10 @@ const PricingAndPlans = () => {
             </div>
             <div className="row g-3">
                 {
-                    pricingAndPlans.map(pricingAndPlan => <PricingAndPlansCard pricingAndPlan={pricingAndPlan} />)
+                    service.map(item => <PricingAndPlansCard key={item._id} pricingAndPlan={item.data}/>)
                 }
             </div>
+            
         </section>
     );
 };

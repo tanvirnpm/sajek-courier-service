@@ -8,57 +8,10 @@ const PricingAndPlans = () => {
         .then(res=>res.json())
         .then(data=>setService(data))
     },[])
-    // console.log(service)
-    const pricingAndPlans = [
-        {
-            id: 1,
-            name: 'Standard Package',
-            thumbnil: 'https://5.imimg.com/data5/JH/UP/JJ/SELLER-32732628/office-relocation-company-500x500.jpg',
-            price: 120,
-            serviceDetail: [
-                'Lorem ipsum dolor sit Amet consectetur',
-                'Cdipisicing elit sed do eiusmod tempor',
-                'Incididunt ut labore et dolore magna aliquas',
-                'Ut enim ad minim veniam, quis nostrud'
-            ]
-        },
-        {
-            id: 1,
-            name: 'Standard Package',
-            thumbnil: 'https://5.imimg.com/data5/JH/UP/JJ/SELLER-32732628/office-relocation-company-500x500.jpg',
-            price: 120,
-            serviceDetail: [
-                'Lorem ipsum dolor sit Amet consectetur',
-                'Cdipisicing elit sed do eiusmod tempor',
-                'Incididunt ut labore et dolore magna aliquas',
-                'Ut enim ad minim veniam, quis nostrud'
-            ]
-        },
-        {
-            id: 1,
-            name: 'Standard Package',
-            thumbnil: 'https://5.imimg.com/data5/JH/UP/JJ/SELLER-32732628/office-relocation-company-500x500.jpg',
-            price: 120,
-            serviceDetail: [
-                'Lorem ipsum dolor sit Amet consectetur',
-                'Cdipisicing elit sed do eiusmod tempor',
-                'Incididunt ut labore et dolore magna aliquas',
-                'Ut enim ad minim veniam, quis nostrud'
-            ]
-        },
-        {
-            id: 1,
-            name: 'Standard Package',
-            thumbnil: 'https://5.imimg.com/data5/JH/UP/JJ/SELLER-32732628/office-relocation-company-500x500.jpg',
-            price: 120,
-            serviceDetail: [
-                'Lorem ipsum dolor sit Amet consectetur',
-                'Cdipisicing elit sed do eiusmod tempor',
-                'Incididunt ut labore et dolore magna aliquas',
-                'Ut enim ad minim veniam, quis nostrud'
-            ]
-        },
-    ]
+    const makeOrder = id => {
+        console.log(id);
+    }
+    
     return (
         <section className="container py-5">
             <div className="row justify-content-center">
@@ -69,7 +22,7 @@ const PricingAndPlans = () => {
             </div>
             <div className="row g-3">
                 {
-                    service.map(item => <PricingAndPlansCard key={item._id} pricingAndPlan={item.data}/>)
+                    service.map(item => <PricingAndPlansCard makeOrder={makeOrder} key={item._id} id={item._id} pricingAndPlan={item.data}/>)
                 }
             </div>
             

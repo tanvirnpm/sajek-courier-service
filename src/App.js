@@ -5,6 +5,7 @@ import Home from "./Components/Home/Home";
 import ManageAllOrders from "./Components/ManageAllOrders/ManageAllOrders";
 import MyOrders from "./Components/MyOrders/MyOrders";
 import NotFound from "./Components/NotFound/NotFound";
+import OrderDetails from "./Components/OrderDetails/OrderDetails";
 import Login from "./Components/Shared/Login/Login";
 
 export const UserContext = createContext();
@@ -49,6 +50,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/manage-all-orders">
             <ManageAllOrders />
+          </PrivateRoute>
+          <PrivateRoute path="/order/details/:id">
+            <OrderDetails />
           </PrivateRoute>
           <Route path="*">
             <NotFound />

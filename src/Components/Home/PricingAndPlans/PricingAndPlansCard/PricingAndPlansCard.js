@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-const PricingAndPlansCard = ({ pricingAndPlan, makeOrder, id }) => {
+const PricingAndPlansCard = ({ pricingAndPlan, id }) => {
     const { name, thumbnil, price, serviceDetail } = pricingAndPlan;
     return (
         <div className="col-md-4">
@@ -11,7 +11,7 @@ const PricingAndPlansCard = ({ pricingAndPlan, makeOrder, id }) => {
                     <h5 className="card-title">{name}</h5>
                     <h6 className="card-title">{price}</h6>
                     <p className="card-text">{serviceDetail}</p>
-                    <Link to={`/order/details/${id}`} onClick={() => makeOrder(id)} className="btn btn-primary">Order Now</Link>
+                    <Link to={`/order/details/${id}`} className="btn btn-primary">Order Now</Link>
                 </div>
             </div>
         </div>

@@ -8,9 +8,6 @@ const PricingAndPlans = () => {
         .then(res=>res.json())
         .then(data=>setService(data))
     },[])
-    const makeOrder = id => {
-        console.log(id);
-    }
     
     return (
         <section className="container py-5">
@@ -22,7 +19,7 @@ const PricingAndPlans = () => {
             </div>
             <div className="row g-3">
                 {
-                    service.map(item => <PricingAndPlansCard makeOrder={makeOrder} key={item._id} id={item._id} pricingAndPlan={item.data}/>)
+                    service.map(item => <PricingAndPlansCard key={item._id} id={item._id} pricingAndPlan={item.data}/>)
                 }
             </div>
             

@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
 import AddANewService from "./Components/AddANewService/AddANewService";
 import Home from "./Components/Home/Home";
 import ManageAllOrders from "./Components/ManageAllOrders/ManageAllOrders";
@@ -13,6 +14,13 @@ function App() {
   const [loggedUser, setLoggedUser] = useState({
     logged: false
   })
+  useEffect(() => {
+    const getLocalStorageUser = JSON.parse(localStorage.getItem("loginUser"));
+    // console.log(getLocalStorageUser);
+    if(getLocalStorageUser){
+      setLoggedUser(getLocalStorageUser);
+    }
+  }, []);
   const PrivateRoute = ({ children, ...rest }) => {
     return (
       <Route

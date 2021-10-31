@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { UserContext } from "../../App";
+import Footer from "../Shared/Footer/Footer";
 import Navbar from "../Shared/Navbar/Navbar";
 
 const OrderDetails = () => {
@@ -36,19 +37,20 @@ const OrderDetails = () => {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className="container my-3">
         <div className="row justify-content-center align-items-center mt-4">
-          <div className="col-md-6 border rounded py-5">
+          <div className="col-md-8 border rounded py-5">
             <img src={thumbnil} alt="" className="fluid" />
-            <h1 className="text-center">{name}</h1>
-            <h1 className="text-center">{price}</h1>
-            <h1 className="text-center">{serviceDetail}</h1>
+            <h5 className="text-center">Name: {name}</h5>
+            <p className="text-center">Price: {price}</p>
+            <p className="text-center">Details: {serviceDetail}</p>
             <div className="text-center">
               <button onClick={() => placeAnOrder()} className="btn btn-success mt-4">Place an order</button>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

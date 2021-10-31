@@ -40,7 +40,7 @@ const ServiceAddForm = () => {
             <div className="mb-3 row">
                 <label htmlFor="serviceThumbnil" className="col-sm-2 col-form-label">Thumbnil</label>
                 <div className="col-sm-10">
-                    <input className="form-control" type="file" id="serviceThumbnil" {...register("thumbnil")} />
+                    <input className="form-control" type="text" placeholder="picture url (example: https://image.jpg)" id="serviceThumbnil" {...register("thumbnil")} />
                 </div>
             </div>
             <div className="mb-3 row">

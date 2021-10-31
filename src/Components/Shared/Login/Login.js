@@ -11,7 +11,7 @@ const Login = () => {
     const [loggedUser, setLoggedUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
-    
+
     // firebase initialization
     firebaseInitialize();
 
@@ -21,6 +21,10 @@ const Login = () => {
         height: '30px'
     }
 
+    // if (loggedUser.email) {
+    //     history.replace(from);
+    //   }
+    console.log('logged user form local storage', loggedUser)
 
     // login by gmail
     const signWithGmail = () => {
@@ -36,6 +40,8 @@ const Login = () => {
                     logged: true,
                     user
                 })
+                const userStoreInLocalStorage = JSON.stringify(user);
+                localStorage.setItem("loginUser", userStoreInLocalStorage);
                 history.replace(from);
             }).catch((error) => {
                 console.log(error)

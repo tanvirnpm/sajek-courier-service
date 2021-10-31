@@ -1,14 +1,14 @@
 import React from 'react';
 
-const OurTeamCard = () => {
+const OurTeamCard = ({member}) => {
     return (
         <div className="col-md-4">
             <div className="card">
-                <img src="" className="card-img-top" alt="" />
+                <img style={{height: '400px'}} src={member.url} className="card-img-top" alt="" />
                 <div className="card-body">
-                    <h5 className="card-title">Mr. Noman Ali</h5>
-                    <h6 className="card-sub-title">Team Manager</h6>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, hic!</p>
+                    <h5 className="card-title">Name: {member.name}</h5>
+                    <h6 className="card-sub-title">Designation: {member.designation}</h6>
+                    <p className="card-text">Area/Location: {member.location}</p>
                 </div>
             </div>
         </div>

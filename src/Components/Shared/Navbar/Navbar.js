@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
+
+import firebaseInitialize from '../../../firebaseInitialize';
+import { getAuth, signOut } from "firebase/auth";
 
 const Navbar = () => {
+    // firebase initialization
+    firebaseInitialize();
+    const [loggedUser, setLoggedUser] = useContext(UserContext);
+    const logOutHandler = () => {
+        const auth = getAuth();
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful.
+            setLoggedUser({});
+            localStorage.removeItem("loginUser");
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      };
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div className="container">
@@ -25,7 +44,9 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <div>
-                        Logout
+                        {
+                            loggedUser.email? <Link to="/login" className="btn btn-primary">Login</Link>: <button onClick={()=> logOutHandler} className="btn btn-danger">Logout</button>
+                        }
                     </div>
                 </div>
             </div>

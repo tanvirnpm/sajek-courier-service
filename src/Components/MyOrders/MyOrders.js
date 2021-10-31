@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [loggedUser, setLoggedUser] = useContext(UserContext);
     const [myOrders, setMyOrders] = useState([]);
     const [orderId, setOrderId] = useState({})
-    console.log('after login', loggedUser.user.email)
+    // console.log('after login', loggedUser.user.email)
     const loggedUserEmail = {
         email: loggedUser.user.email
     };
@@ -23,7 +23,7 @@ const MyOrders = () => {
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [])
-    console.log('my order list', myOrders._id)
+    // console.log('my order list', myOrders._id)
 
     // set single order id
     const getOrderIdForDelete = id => {
@@ -45,7 +45,7 @@ const MyOrders = () => {
         })
             .then(res => res.json())
             .then(result => console.log(result))
-        console.log(id)
+        // console.log(id)
     }
     return (
         <div>

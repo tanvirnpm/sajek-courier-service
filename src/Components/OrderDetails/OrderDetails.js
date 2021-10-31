@@ -40,7 +40,7 @@ const OrderDetails = () => {
       <div className="container my-3">
         <div className="row justify-content-center align-items-center mt-4">
           <div className="col-md-8 border rounded py-5">
-            <img src={thumbnil} alt="" className="fluid" />
+            <img src={thumbnil} alt="" className="img-fluid" />
             <h5 className="text-center">Name: {name}</h5>
             <p className="text-center">Price: {price}</p>
             <p className="text-center">Details: {serviceDetail}</p>

@@ -24,7 +24,7 @@ const Login = () => {
     // if (loggedUser.email) {
     //     history.replace(from);
     //   }
-    console.log('logged user form local storage', loggedUser)
+    // console.log('logged user form local storage', loggedUser)
 
     // login by gmail
     const signWithGmail = () => {
@@ -48,7 +48,7 @@ const Login = () => {
             });
     }
     // console login user information initial state
-    console.log(loggedUser)
+    // console.log(loggedUser)
     return (
         <div className="vh-100 position-relative">
             <Navbar />

@@ -16,7 +16,6 @@ const Footer = () => {
                             <Link className="nav-link text-white" to="/project">Project</Link>
                             <Link className="nav-link text-white" to="/our-team">Our Team</Link>
                             <Link className="nav-link text-white" to="/tearms-conditions">Tearms Conditions</Link>
-                            <Link className="nav-link text-white" to="/submit-listing">Submit Listing</Link>
                         </div>
                     </div>
                     <div className="col-md-2 text-white">
@@ -26,12 +25,11 @@ const Footer = () => {
                             <Link className="nav-link text-white" to="/project">Project</Link>
                             <Link className="nav-link text-white" to="/our-team">Our Team</Link>
                             <Link className="nav-link text-white" to="/tearms-conditions">Tearms Conditions</Link>
-                            <Link className="nav-link text-white" to="/submit-listing">Submit Listing</Link>
                         </div>
                     </div>
                     <div className="col-md-4 text-white">
                         <h3>About Us</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos qui illum ipsum debitis fuga beatae laborum fugit esse vel nihil.</p>
+                        <p>We are the first in Bangladesh to have created a unique network with home delivery and Store Pickup & Return services which enhances customer experience and rationalizes costs.</p>
                     </div>
                 </div>
             </div>

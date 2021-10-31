@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
             .then(res => res.json())
             .then(data => setAllOrders(data));
     }, [])
-    console.log('all orders', allOrders)
+    // console.log('all orders', allOrders)
     // set single order id
     const getOrderIdForDelete = id => {
         console.log(id)
@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
         })
             .then(res => res.json())
             .then(result => console.log(result))
-        console.log(id)
+        // console.log(id)
     }
     return (
         <div>

@@ -31,20 +31,21 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+                        {loggedUser.email && <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {loggedUser.email && <li className="nav-item">
                             <Link className="nav-link" to="/my-orders">My Orders</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {loggedUser.email && <li className="nav-item">
                             <Link className="nav-link" to="/manage-all-orders">Manage All Orders</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {loggedUser.email && <li className="nav-item">
                             <Link className="nav-link" to="/add-a-new-service">Add A New Service</Link>
-                        </li>
+                        </li>}
                     </ul>
                     <div>
+                        <span className="me-2">{loggedUser.name} <img style={{height: '30px', borderRadius: '50%'}} src={loggedUser.photo} alt="" /></span>
                         {
                             loggedUser.email?<button onClick={()=> logOutHandler()} className="btn btn-danger">Logout</button>: <Link to="/login" className="btn btn-primary">Login</Link>
                         }

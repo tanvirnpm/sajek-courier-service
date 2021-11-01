@@ -38,6 +38,12 @@ const ManageAllOrders = () => {
             .then(result => console.log(result))
         // console.log(id)
     }
+    // active order now
+    const activeOrder = id => {
+        fetch(`http://localhost:5000/orderActive/${id}`)
+        .then(res=>res.json())
+        .then(result => console.log(result))
+    }
     return (
         <div>
             <Navbar />
@@ -55,7 +61,7 @@ const ManageAllOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrders.map(order => <OrderContainer orderId={order._id} key={order._id} getOrderIdForDelete={getOrderIdForDelete} order={order} />)
+                            allOrders.map(order => <OrderContainer activeOrder={activeOrder} orderId={order._id} key={order._id} getOrderIdForDelete={getOrderIdForDelete} order={order} />)
                         }
 
                     </tbody>

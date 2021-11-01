@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
     // console.log('all orders', allOrders)
     // set single order id
     const getOrderIdForDelete = id => {
-        console.log(id)
+        // console.log(id)
         setOrderId(id);
     }
 

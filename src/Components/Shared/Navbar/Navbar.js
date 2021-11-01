@@ -20,6 +20,7 @@ const Navbar = () => {
           .catch((error) => {
             // An error happened.
           });
+          console.log('logout done')
       };
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -45,7 +46,7 @@ const Navbar = () => {
                     </ul>
                     <div>
                         {
-                            loggedUser.email? <Link to="/login" className="btn btn-primary">Login</Link>: <button onClick={()=> logOutHandler} className="btn btn-danger">Logout</button>
+                            loggedUser.email?<button onClick={()=> logOutHandler()} className="btn btn-danger">Logout</button>: <Link to="/login" className="btn btn-primary">Login</Link>
                         }
                     </div>
                 </div>

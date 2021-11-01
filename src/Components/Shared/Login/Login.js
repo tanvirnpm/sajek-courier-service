@@ -21,24 +21,18 @@ const Login = () => {
         height: '30px'
     }
 
-    // if (loggedUser.email) {
-    //     history.replace(from);
-    //   }
-    // console.log('logged user form local storage', loggedUser)
+    loggedUser.email && history.replace(from)
+    console.log('logged user form local storage', loggedUser)
 
     // login by gmail
     const signWithGmail = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                const user = {
+                setLoggedUser({
                     name: result.user.displayName,
                     email: result.user.email,
                     photo: result.user.photoURL
-                };
-                setLoggedUser({
-                    logged: true,
-                    user
                 })
                 const userStoreInLocalStorage = JSON.stringify(user);
                 localStorage.setItem("loginUser", userStoreInLocalStorage);

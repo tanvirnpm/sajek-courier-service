@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import { UserContext } from "../../App";
 import Footer from "../Shared/Footer/Footer";
 import Navbar from "../Shared/Navbar/Navbar";
@@ -9,21 +9,36 @@ const OrderDetails = () => {
   const [serviceDetails, setServiceDetails] = useState({})
   const { name, thumbnil, price, serviceDetail } = serviceDetails;
   const { id } = useParams();
+  const history = useHistory();
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/my-orders" } };
   const serviceIdFromDatabase = {
     serviceId: id
 
   }
-  const sendOrderInformation = {...serviceDetails, ...loggedUser}
+
+  // const sendOrderInformation = [ {...serviceDetails}, {...loggedUser}, {status: 'pending'} ]
+  const sendOrderInformation = {
+    order: {...serviceDetails},
+    user: {...loggedUser},
+    status: 'Pending'
+
+
+  }
   // console.log(sendOrderInformation)
+  console.log('logged user in order details', loggedUser)
+  console.log('service in order details',serviceDetails)
   const placeAnOrder = () => {
-    fetch('http://localhost:5000/makeAnOrder',{
+    fetch('http://localhost:5000/makeAnOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(sendOrderInformation)
-    }).then(res=>res.json())
-    .then(result=> console.log(result))
+    }).then(res => res.json())
+      .then(result => {
+        result.acknowledged && history.replace(from)
+    })
   }
   useEffect(() => {
     fetch("http://localhost:5000/serviceDetails", {

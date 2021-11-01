@@ -3,27 +3,32 @@ import { UserContext } from '../../App';
 import Navbar from '../Shared/Navbar/Navbar';
 import OrderContainer from './OrderContainer/OrderContainer';
 import '../ManageAllOrders/ManageAllOrders.css'
+import { useHistory, useLocation } from 'react-router';
 
 const MyOrders = () => {
     const [loggedUser, setLoggedUser] = useContext(UserContext);
     const [myOrders, setMyOrders] = useState([]);
     const [orderId, setOrderId] = useState({})
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/my-orders" } };
     // console.log('after login', loggedUser.user.email)
-    const loggedUserEmail = {
-        email: loggedUser.user.email
-    };
+    // const loggedUserEmail = {
+        
+    // };
     useEffect(() => {
         fetch('http://localhost:5000/getMyOrders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(loggedUserEmail)
+            body: JSON.stringify({email: loggedUser.email})
         })
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [])
-    // console.log('my order list', myOrders._id)
+    // console.log('my order list', myOrders)
 
     // set single order id
     const getOrderIdForDelete = id => {
@@ -44,7 +49,9 @@ const MyOrders = () => {
             body: JSON.stringify(finalOrderId)
         })
             .then(res => res.json())
-            .then(result => console.log(result))
+            .then(result => {
+                result.acknowledged && setDeleteConfirm(true)
+            })
         // console.log(id)
     }
     return (
@@ -74,15 +81,15 @@ const MyOrders = () => {
                 <div className="modal-dialog modal-confirm">
                     <div className="modal-content">
                         <div className="modal-header flex-column">
-                            <h5 className="modal-title w-100">Are you sure?</h5>
+                            <h5 className="modal-title w-100">{deleteConfirm? <span className="text-success">Order Has been deleted</span> : 'Are you sure?'}</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
+                        {deleteConfirm?'':<div className="modal-body">
                             <p>Do you really want to delete these records? This process cannot be undone.</p>
-                        </div>
+                        </div>}
                         <div className="modal-footer justify-content-center">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button onClick={() => deleteOrderByOrderId(orderId)} type="button" className="btn btn-danger">Delete</button>
+                            <button type="button" onClick={()=> setDeleteConfirm(false)} className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            {deleteConfirm?'':<button onClick={() => deleteOrderByOrderId(orderId)} type="button" className="btn btn-danger">Delete</button>}
                         </div>
                     </div>
                 </div>

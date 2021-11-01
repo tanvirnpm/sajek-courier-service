@@ -11,9 +11,7 @@ import Login from "./Components/Shared/Login/Login";
 
 export const UserContext = createContext();
 function App() {
-  const [loggedUser, setLoggedUser] = useState({
-    logged: false
-  })
+  const [loggedUser, setLoggedUser] = useState({})
   useEffect(() => {
     const getLocalStorageUser = JSON.parse(localStorage.getItem("loginUser"));
     // console.log(getLocalStorageUser);
@@ -21,12 +19,13 @@ function App() {
       setLoggedUser(getLocalStorageUser);
     }
   }, []);
+  console.log('logged user form local storage', loggedUser.email)
   const PrivateRoute = ({ children, ...rest }) => {
     return (
       <Route
         {...rest}
         render={({ location }) =>
-          loggedUser.logged ? (
+          loggedUser.email ? (
             children
           ) : (
             <Redirect

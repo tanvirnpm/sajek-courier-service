@@ -4,6 +4,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import OrderContainer from './OrderContainer/OrderContainer';
 import '../ManageAllOrders/ManageAllOrders.css'
 import { useHistory, useLocation } from 'react-router';
+import Footer from '../Shared/Footer/Footer';
 
 const MyOrders = () => {
     const [loggedUser, setLoggedUser] = useContext(UserContext);
@@ -59,7 +60,7 @@ const MyOrders = () => {
     return (
         <div>
             <Navbar />
-            <div className="container">
+            <div className="container py-5">
                 <h1 className="text-center py-3">My Orders List</h1>
                 <table className="table">
                     <thead>
@@ -96,6 +97,7 @@ const MyOrders = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

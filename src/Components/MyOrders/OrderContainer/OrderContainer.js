@@ -8,8 +8,11 @@ const OrderContainer = ({order, orderId, getOrderIdForDelete, index, activeOrder
             <th scope="row">{index}</th>
             <td>{name}</td>
             <td>{price}</td>
-            <td>{order.status}</td>
-            <td><button onClick={() => getOrderIdForDelete(orderId)} className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button></td>
+            <td className="text-danger">{order.status}</td>
+            <td>
+                <button onClick={() => getOrderIdForDelete(orderId)} className="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+                <button className="btn btn-sm btn-success">Approved</button>
+            </td>
         </tr>
     );
 };

@@ -4,7 +4,7 @@ import PricingAndPlansCard from './PricingAndPlansCard/PricingAndPlansCard';
 const PricingAndPlans = () => {
     const [service, setService] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/getService')
+        fetch('https://fierce-cliffs-54848.herokuapp.com/getService')
         .then(res=>res.json())
         .then(data=>setService(data))
     },[])

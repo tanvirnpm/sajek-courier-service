@@ -17,8 +17,10 @@ const MyOrders = () => {
     // const loggedUserEmail = {
         
     // };
+    // https://fierce-cliffs-54848.herokuapp.com/
+    
     useEffect(() => {
-        fetch('http://localhost:5000/getMyOrders', {
+        fetch('https://fierce-cliffs-54848.herokuapp.com/getMyOrders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +43,7 @@ const MyOrders = () => {
         const finalOrderId = {
             o_id: id
         }
-        fetch('http://localhost:5000/deleteOrderByOrderId', {
+        fetch('https://fierce-cliffs-54848.herokuapp.com/deleteOrderByOrderId', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

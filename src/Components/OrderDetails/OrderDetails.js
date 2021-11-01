@@ -29,7 +29,7 @@ const OrderDetails = () => {
   console.log('logged user in order details', loggedUser)
   console.log('service in order details',serviceDetails)
   const placeAnOrder = () => {
-    fetch('http://localhost:5000/makeAnOrder', {
+    fetch('https://fierce-cliffs-54848.herokuapp.com/makeAnOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const OrderDetails = () => {
     })
   }
   useEffect(() => {
-    fetch("http://localhost:5000/serviceDetails", {
+    fetch("https://fierce-cliffs-54848.herokuapp.com/serviceDetails", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(serviceIdFromDatabase),

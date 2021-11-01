@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([])
     const [orderId, setOrderId] = useState({})
     useEffect(() => {
-        fetch('http://localhost:5000/getAllOrders')
+        fetch('https://fierce-cliffs-54848.herokuapp.com/getAllOrders')
             .then(res => res.json())
             .then(data => setAllOrders(data));
     }, [])
@@ -27,7 +27,7 @@ const ManageAllOrders = () => {
         const finalOrderId = {
             o_id: id
         }
-        fetch('http://localhost:5000/deleteOrderByOrderId', {
+        fetch('https://fierce-cliffs-54848.herokuapp.com/deleteOrderByOrderId', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

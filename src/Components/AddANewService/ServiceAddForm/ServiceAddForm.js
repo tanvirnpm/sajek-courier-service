@@ -13,7 +13,7 @@ const ServiceAddForm = () => {
 
     const onSubmit = data => {
         const sendService = {loggedUser, data}
-        fetch('http://localhost:5000/addService', {
+        fetch('https://fierce-cliffs-54848.herokuapp.com/addService', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(sendService)

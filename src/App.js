@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import AddANewService from "./Components/AddANewService/AddANewService";
 import Home from "./Components/Home/Home";
 import ManageAllOrders from "./Components/ManageAllOrders/ManageAllOrders";

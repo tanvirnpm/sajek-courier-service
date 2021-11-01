@@ -90,7 +90,7 @@ const MyOrders = () => {
                             <p>Do you really want to delete these records? This process cannot be undone.</p>
                         </div>}
                         <div className="modal-footer justify-content-center">
-                            <button type="button" onClick={()=> setDeleteConfirm(false)} className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" onClick={()=> setDeleteConfirm(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {deleteConfirm?'':<button onClick={() => deleteOrderByOrderId(orderId)} type="button" className="btn btn-danger">Delete</button>}
                         </div>
                     </div>

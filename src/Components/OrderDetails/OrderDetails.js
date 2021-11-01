@@ -62,28 +62,47 @@ const OrderDetails = () => {
             <h5 className="text-center">Name: {name}</h5>
             <p className="text-center">Price: {price}</p>
             <p className="text-center">Details: {serviceDetail}</p>
-            <form onSubmit={handleSubmit(placeAnOrder)}>
-              <div className="mb-3 row">
-                  <label htmlFor="contactNumber" className="col-xs-12 col-md-4 col-lg-2 col-form-label">Contact Number</label>
-                  <div className="col-sm-12 col-md-12 col-lg-10">
-                      <input className="form-control" id="contactNumber" {...register("contact")} />
-                  </div>
+            <div className="row mt-5">
+              <div className="col-12 mb-3">
+                <h4 className="text-center text-success">Please provide your information for make an order</h4>
               </div>
-              <div className="mb-3 row">
-                  <label htmlFor="address" className="col-sm-2 col-form-label">Details</label>
-                  <div className="col-sm-10">
-                      <textarea className="form-control" rows="3" placeholder="Full Address" id="address" {...register("address")} ></textarea>
-                  </div>
-              </div>
-              <div className="mb-3 row">
-                  <div className="col text-center">
-                      {/* <input className="btn btn-primary float-end" type="submit"/> */}
-                      <div className="text-center">
-                        <button type="submit" className="btn btn-success mt-4">Place an order</button>
+              <div className="col-12 px-5">
+                <form onSubmit={handleSubmit(placeAnOrder)}>
+                  <div className="mb-3 row">
+                      <label htmlFor="userName" className="col-xs-12 col-md-4 col-lg-3 col-form-label">Your Name</label>
+                      <div className="col-sm-12 col-md-12 col-lg-9">
+                          <input className="form-control" value={loggedUser.name} id="userName" {...register("name")} />
                       </div>
                   </div>
+                  <div className="mb-3 row">
+                      <label htmlFor="userEmail" className="col-xs-12 col-md-4 col-lg-3 col-form-label">Your Email</label>
+                      <div className="col-sm-12 col-md-12 col-lg-9">
+                          <input className="form-control" value={loggedUser.email} id="userEmail" {...register("email")} />
+                      </div>
+                  </div>
+                  <div className="mb-3 row">
+                      <label htmlFor="contactNumber" className="col-xs-12 col-md-4 col-lg-3 col-form-label">Contact Number</label>
+                      <div className="col-sm-12 col-md-12 col-lg-9">
+                          <input className="form-control" placeholder="Contact Number" id="contactNumber" {...register("contact")} />
+                      </div>
+                  </div>
+                  <div className="mb-3 row">
+                      <label htmlFor="address" className="col-xs-12 col-md-4 col-lg-3 col-form-label">Details</label>
+                      <div className="col-sm-12 col-md-12 col-lg-9">
+                          <textarea className="form-control" rows="3" placeholder="Full Address" id="address" {...register("address")} ></textarea>
+                      </div>
+                  </div>
+                  <div className="mb-3 row">
+                      <div className="col text-center">
+                          {/* <input className="btn btn-primary float-end" type="submit"/> */}
+                          <div className="text-center">
+                            <button type="submit" className="btn btn-success mt-4">Place an order</button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
               </div>
-          </form>
+            </div>
           </div>
         </div>
       </div>

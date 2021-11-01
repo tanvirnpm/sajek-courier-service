@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../../App';
 
 const ServiceAddForm = () => {
     const [loggedUser, setLoggedUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
     const onSubmit = data => {
         const sendService = {loggedUser, data}
         fetch('http://localhost:5000/addService', {
@@ -14,7 +20,8 @@ const ServiceAddForm = () => {
         })
         .then(res=>res.json())
         .then(result=>{
-            console.log("inserted data",result)
+            // console.log("inserted data",result)
+            result.acknowledged && history.replace(from)
         })
     };
     return (

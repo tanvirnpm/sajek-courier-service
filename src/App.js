@@ -15,11 +15,9 @@ function App() {
   useEffect(() => {
     const getLocalStorageUser = JSON.parse(localStorage.getItem("loginUser"));
     // console.log(getLocalStorageUser);
-    if(getLocalStorageUser){
-      setLoggedUser(getLocalStorageUser);
-    }
+    getLocalStorageUser && setLoggedUser(getLocalStorageUser)
   }, []);
-  console.log('logged user form local storage', loggedUser.email)
+  // console.log('logged user form local storage', loggedUser.email)
   const PrivateRoute = ({ children, ...rest }) => {
     return (
       <Route

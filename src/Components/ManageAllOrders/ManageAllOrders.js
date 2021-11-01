@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
         fetch('https://fierce-cliffs-54848.herokuapp.com/getAllOrders')
             .then(res => res.json())
             .then(data => setAllOrders(data));
-    }, [])
+    }, [allOrders])
     // console.log('all orders', allOrders)
     // set single order id
     const getOrderIdForDelete = id => {
@@ -42,7 +42,13 @@ const ManageAllOrders = () => {
     }
     // active order now
     const activeOrder = id => {
-        fetch(`http://localhost:5000/orderActive/${id}`)
+        fetch(`http://localhost:5000/orderActive/${id}`,{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Active'})
+        })
         .then(res=>res.json())
         .then(result => console.log(result))
     }

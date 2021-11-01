@@ -11,7 +11,9 @@ const OrderContainer = ({order, orderId, getOrderIdForDelete, index, activeOrder
             <td className="text-danger">{order.status}</td>
             <td>
                 <button onClick={() => getOrderIdForDelete(orderId)} className="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-                <button className="btn btn-sm btn-success">Approved</button>
+                {
+                    order.status == 'Active'?'':<button onClick={()=> activeOrder(orderId)} className="btn btn-sm btn-success">Approved</button>
+                }
             </td>
         </tr>
     );

@@ -30,7 +30,7 @@ const MyOrders = () => {
         })
             .then(res => res.json())
             .then(data => setMyOrders(data))
-    }, [])
+    }, [myOrders])
     // console.log('my order list', myOrders)
 
     // set single order id
@@ -57,6 +57,19 @@ const MyOrders = () => {
             })
         // console.log(id)
     }
+
+    // active order now
+    const activeOrder = id => {
+        fetch(`http://localhost:5000/orderActive/${id}`,{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Active'})
+        })
+        .then(res=>res.json())
+        .then(result => console.log(result))
+    }
     return (
         <div>
             <Navbar />
@@ -74,7 +87,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            myOrders.map(order => <OrderContainer getOrderIdForDelete={getOrderIdForDelete} orderId={order._id} key={order._id} order={order} />)
+                            myOrders.map(order => <OrderContainer activeOrder={activeOrder} getOrderIdForDelete={getOrderIdForDelete} orderId={order._id} key={order._id} order={order} />)
                         }
                     </tbody>
                 </table>
